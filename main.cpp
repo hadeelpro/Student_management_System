@@ -21,7 +21,8 @@ int main()
         cout << "1. Add Student" << endl;
         cout << "2. Show Students" << endl;
         cout << "3. Search Student" << endl;
-        cout << "4. Exit" << endl;
+cout << "4. Exit" << endl;
+cout << "5. Edit Student" << endl;
 
         cout << "Enter your choice: ";
         cin >> choice;
@@ -74,6 +75,32 @@ int main()
         {
             cout << "Name: " << students[i].name << endl;
             cout << "Grade: " << students[i].grade << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Student Not Found!" << endl;
+
+    break;
+}
+            case 5:
+{
+    int searchID;
+    bool found = false;
+
+    cout << "Enter Student ID: ";
+    cin >> searchID;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (students[i].id == searchID)
+        {
+            cout << "Enter New Grade: ";
+            cin >> students[i].grade;
+
+            cout << "Grade Updated Successfully!" << endl;
             found = true;
             break;
         }
