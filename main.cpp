@@ -60,8 +60,30 @@ int main()
             break;
 
         case 3:
-            cout << "Search feature coming soon!" << endl;
+            case 3:
+{
+    int searchID;
+    bool found = false;
+
+    cout << "Enter Student ID: ";
+    cin >> searchID;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (students[i].id == searchID)
+        {
+            cout << "Name: " << students[i].name << endl;
+            cout << "Grade: " << students[i].grade << endl;
+            found = true;
             break;
+        }
+    }
+
+    if (!found)
+        cout << "Student Not Found!" << endl;
+
+    break;
+}
 
         case 4:
             cout << "Goodbye!" << endl;
