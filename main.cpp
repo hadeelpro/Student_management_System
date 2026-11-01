@@ -21,8 +21,9 @@ int main()
         cout << "1. Add Student" << endl;
         cout << "2. Show Students" << endl;
         cout << "3. Search Student" << endl;
-cout << "4. Exit" << endl;
+cout << "7. Exit" << endl;
 cout << "5. Edit Student" << endl;
+        cout<<"6.Delete Student"<<endl;
 
         cout << "Enter your choice: ";
         cin >> choice;
@@ -112,15 +113,46 @@ cout << "5. Edit Student" << endl;
     break;
 }
 
-        case 4:
-            cout << "Goodbye!" << endl;
+        case 6:
+{
+    int searchID;
+    bool found = false;
+
+    cout << "Enter Student ID: ";
+    cin >> searchID;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (students[i].id == searchID)
+        {
+            for (int j = i; j < count - 1; j++)
+            {
+                students[j] = students[j + 1];
+            }
+
+            count--;
+            found = true;
+
+            cout << "Student Deleted Successfully!" << endl;
             break;
+        }
+    }
+
+    if (!found)
+        cout << "Student Not Found!" << endl;
+
+    break;
+}
+
+case 7:
+    cout << "Goodbye!" << endl;
+    break;
 
         default:
             cout << "Invalid Choice!" << endl;
         }
 
-    } while (choice != 4);
+    } while (choice != 7);
 
     return 0;
 }
