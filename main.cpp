@@ -1,34 +1,77 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-int main(){
-  int choice;
-  do 
+
+struct Student
+{
+    int id;
+    string name;
+    float grade;
+};
+
+int main()
+{
+    Student students[100];
+    int count = 0;
+    int choice;
+
+    do
     {
-      cout<<"\n====student management system ===="<<endl;
-      cout<<"1.Add student"<<endl;
-      cout<<"2.show students"<<endl;
-      cout<<"3.search student"<<endl;
-      cout<<"4.Exit"<<endl;
-      cout<<"Enter your choice:"<<endl;
-      cin>>shoice;
-      switch (choice)
+        cout << "\n===== Student Management System =====" << endl;
+        cout << "1. Add Student" << endl;
+        cout << "2. Show Students" << endl;
+        cout << "3. Search Student" << endl;
+        cout << "4. Exit" << endl;
+
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
         {
-          case 1 :
-            cout<<"Add student"<<endl;
+        case 1:
+            if (count < 100)
+            {
+                cout << "Enter ID: ";
+                cin >> students[count].id;
+
+                cout << "Enter Name: ";
+                cin >> students[count].name;
+
+                cout << "Enter Grade: ";
+                cin >> students[count].grade;
+
+                count++;
+
+                cout << "Student Added Successfully!" << endl;
+            }
+            else
+            {
+                cout << "Maximum number of students reached!" << endl;
+            }
             break;
-          case 2:
-            cout<<"show students"<<endl;
+
+        case 2:
+            for (int i = 0; i < count; i++)
+            {
+                cout << students[i].id << " "
+                     << students[i].name << " "
+                     << students[i].grade << endl;
+            }
             break;
-          case 3:
-            cout<<"search student"<<endl;
+
+        case 3:
+            cout << "Search feature coming soon!" << endl;
             break;
-          case 4:
-            cout<<"Goodbye!"<<endl;
+
+        case 4:
+            cout << "Goodbye!" << endl;
             break;
-            default :
-              cout<<"invalid choice!"<<endl;
+
+        default:
+            cout << "Invalid Choice!" << endl;
         }
-    }
-    while(choice !=4);
-return 0;
+
+    } while (choice != 4);
+
+    return 0;
 }
